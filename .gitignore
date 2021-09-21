@@ -1,0 +1,8 @@
+/Debug/
+.metadata
+RemoteSystemsTempFiles
+*.launch
+*.cfg
+.vscode
+!/vscode_tools/**/*.cfg
+build
