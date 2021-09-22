@@ -22,6 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "../Inc/spi.h"
 #include "../../Middlewares/ST/ndef/doc/examples/ndef_example_read.h"
 #include "../../Middlewares/ST/ndef/doc/examples/ndef_example_write.h"
 /* USER CODE END Includes */
@@ -97,11 +98,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C1_Init();
+//  MX_I2C1_Init();
   MX_RTC_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
+  /* Initialize driver*/
+  spiInit(&hspi1);
 
   /* USER CODE END 2 */
 
@@ -110,7 +114,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    ndefExampleRead();
+//    ndefExampleRead();
     ndefExampleWrite();
     /* USER CODE BEGIN 3 */
   }
