@@ -76,7 +76,7 @@ static rfalNfcDiscoverParam discParam =
     .totalDuration       = 1000U,
     .wakeupEnabled       = false,
     .wakeupConfigDefault = true,
-    .techs2Find          = ( RFAL_NFC_POLL_TECH_A | RFAL_NFC_POLL_TECH_B | RFAL_NFC_POLL_TECH_F | RFAL_NFC_POLL_TECH_V | RFAL_NFC_POLL_TECH_ST25TB )
+    .techs2Find          = ( RFAL_NFC_POLL_TECH_A | RFAL_NFC_POLL_TECH_B | RFAL_NFC_POLL_TECH_F | RFAL_NFC_POLL_TECH_V )
 };
 
 static ndefContext          ndefCtx;
