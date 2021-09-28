@@ -105,7 +105,7 @@ void ndefExampleWrite( void )
     err |= ndefMessageAppend(&message, &record); /* Append URI to message */
     if( err != ERR_NONE )
     {
-//        platformLog("Message creation failed\r\n", err);
+        platformLog("Message creation failed\r\n", err);
         return;
     }
 
@@ -115,7 +115,7 @@ void ndefExampleWrite( void )
     err = rfalNfcInitialize();
     if( err != ERR_NONE )
     {
-//        platformLog("rfalNfcInitialize return %d\r\n", err);
+        platformLog("rfalNfcInitialize return %d\r\n", err);
         return;
     }
 
@@ -141,7 +141,7 @@ void ndefExampleWrite( void )
             err = ndefPollerContextInitialization(&ndefCtx, nfcDevice);
             if( err != ERR_NONE )
             {
-//                platformLog("NDEF NOT DETECTED (ndefPollerContextInitialization returns %d)\r\n", err);
+                platformLog("NDEF NOT DETECTED (ndefPollerContextInitialization returns %d)\r\n", err);
                 return;
             }
 
@@ -151,7 +151,7 @@ void ndefExampleWrite( void )
             err = ndefPollerNdefDetect(&ndefCtx, NULL);
             if( err != ERR_NONE )
             {
-//                platformLog("NDEF NOT DETECTED (ndefPollerNdefDetect returns %d)\r\n", err);
+                platformLog("NDEF NOT DETECTED (ndefPollerNdefDetect returns %d)\r\n", err);
                 return;
             }
 
@@ -161,11 +161,11 @@ void ndefExampleWrite( void )
             err = ndefPollerWriteMessage(&ndefCtx, &message);
             if( err != ERR_NONE )
             {
-//                platformLog("NDEF message cannot be written (ndefPollerReadRawMessage returns %d)\r\n", err);
+                platformLog("NDEF message cannot be written (ndefPollerReadRawMessage returns %d)\r\n", err);
                 return;
             }
 
-//            platformLog("NDEF Write successful\r\n");
+            platformLog("NDEF Write successful\r\n");
             return;
         }
     }

@@ -57,6 +57,7 @@
 */
 #define LOGGER_ON   1
 #define LOGGER_OFF  0
+#define USE_LOGGER LOGGER_ON
 
 /*!
  *****************************************************************************
@@ -66,7 +67,7 @@
  *
  *****************************************************************************
  */
-//extern void logUsartInit(UART_HandleTypeDef *husart);
+extern void logUsartInit(UART_HandleTypeDef *husart);
 
 /*!
  *****************************************************************************

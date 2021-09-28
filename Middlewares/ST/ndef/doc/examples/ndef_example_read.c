@@ -109,7 +109,7 @@ void ndefExampleRead( void )
     err = rfalNfcInitialize();
     if( err != ERR_NONE )
     {
-//        platformLog("rfalNfcInitialize return %d\r\n", err);
+        platformLog("rfalNfcInitialize return %d\r\n", err);
         return;
     }
 
@@ -121,6 +121,7 @@ void ndefExampleRead( void )
      */
     while (1)
     {
+    	platformLog("NFC GOOO!");
         rfalNfcWorker();
         if( rfalNfcIsDevActivated(rfalNfcGetState()) )
         {
@@ -135,7 +136,7 @@ void ndefExampleRead( void )
             err = ndefPollerContextInitialization(&ndefCtx, nfcDevice);
             if( err != ERR_NONE )
             {
-//                platformLog("NDEF NOT DETECTED (ndefPollerContextInitialization returns %d)\r\n", err);
+                platformLog("NDEF NOT DETECTED (ndefPollerContextInitialization returns %d)\r\n", err);
                 return;
             }
     
@@ -145,7 +146,7 @@ void ndefExampleRead( void )
             err = ndefPollerNdefDetect(&ndefCtx, NULL);
             if( err != ERR_NONE )
             {
-//                platformLog("NDEF NOT DETECTED (ndefPollerNdefDetect returns %d)\r\n", err);
+                platformLog("NDEF NOT DETECTED (ndefPollerNdefDetect returns %d)\r\n", err);
                 return;
             }
 
@@ -155,11 +156,11 @@ void ndefExampleRead( void )
             err = ndefPollerReadRawMessage(&ndefCtx, rawMessageBuf, sizeof(rawMessageBuf), &rawMessageLen);
             if( err != ERR_NONE )
             {
-//                platformLog("NDEF message cannot be read (ndefPollerReadRawMessage returns %d)\r\n", err);
+                platformLog("NDEF message cannot be read (ndefPollerReadRawMessage returns %d)\r\n", err);
                 return;
             }
 
-//            platformLog("NDEF Read successful\r\n");
+            platformLog("NDEF Read successful\r\n");
             
             /*
              * Parse message content
@@ -220,10 +221,10 @@ void ndefExamplePrintString(const uint8_t* str, uint32_t strLen)
 
     while (i-- > 0U)
     {
-//        platformLog("%c", *c);
+        platformLog("%c", *c);
         c++;
     }
-//    platformLog("\r\n");
+    platformLog("\r\n");
 }
 
 /*!
@@ -247,31 +248,31 @@ void ndefExampleParseRecord(ndefRecord* record)
     switch (type.id)
     {
         case NDEF_TYPE_EMPTY:
-//             platformLog(" * Empty record\r\n");
+             platformLog(" * Empty record\r\n");
              break;
         case NDEF_TYPE_RTD_TEXT:
-//             platformLog(" * TEXT record: ");
+             platformLog(" * TEXT record: ");
              ndefExamplePrintString(type.data.text.bufSentence.buffer, type.data.text.bufSentence.length);
              break;
         case NDEF_TYPE_RTD_URI:
-//             platformLog(" * URI record: ");
+             platformLog(" * URI record: ");
              ndefExamplePrintString(type.data.uri.bufUriString.buffer, type.data.uri.bufUriString.length);
              break;
         case NDEF_TYPE_RTD_AAR:
-//             platformLog(" * AAR record: ");
+             platformLog(" * AAR record: ");
              ndefExamplePrintString(type.data.aar.bufPayload.buffer, type.data.aar.bufPayload.length);
              break;
         case NDEF_TYPE_RTD_DEVICE_INFO:
-//            platformLog(" * Device Info record\r\n");
+            platformLog(" * Device Info record\r\n");
             break;
         case NDEF_TYPE_MEDIA_VCARD:
-//            platformLog(" * vCard record\r\n");
+            platformLog(" * vCard record\r\n");
             break;
         case NDEF_TYPE_MEDIA_WIFI:
-//            platformLog(" * WIFI record\r\n");
+            platformLog(" * WIFI record\r\n");
             break;
         default:
-//             platformLog(" * Other record\r\n");
+             platformLog(" * Other record\r\n");
              break;
      }
 }

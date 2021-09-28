@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../Inc/spi.h"
+#include "../Inc/logger.h"
 #include "../../Middlewares/ST/ndef/doc/examples/ndef_example_read.h"
 #include "../../Middlewares/ST/ndef/doc/examples/ndef_example_write.h"
 /* USER CODE END Includes */
@@ -106,6 +107,9 @@ int main(void)
 
   /* Initialize driver*/
   spiInit(&hspi1);
+
+  /* Initialize log module */
+  logUsartInit(&huart1);
 
   /* USER CODE END 2 */
 
